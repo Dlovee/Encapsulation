@@ -4,16 +4,20 @@
     {
         static void Main(string[] args)
         {
-            BankAccount be = new BankAccount();
+            BankAccount be = new BankAccount(); // ✅ Create ONE instance
 
-            Console.WriteLine("How much $$$ do you want to deposit?");
-            double ammountToDeposit = double.Parse(Console.ReadLine());
-            
-            be.Deposit(ammountToDeposit);
-            
-            double userBalance = be.GetBalance();
+            while (true) // ✅ Keep the same instance in a loop
+            {
+                Console.WriteLine("How much $$$ do you want to deposit? (Enter 0 to exit)");
+                double amountToDeposit = double.Parse(Console.ReadLine());
 
-            Console.WriteLine($"Your current balance is: {userBalance, 0:c}");
+                if (amountToDeposit == 0) break; // ✅ Exit condition
+
+                be.Deposit(amountToDeposit); // ✅ Adds to existing balance
+
+                double userBalance = be.GetBalance();
+                Console.WriteLine($"Your current balance is: {userBalance, 0:c}");
+            }
         }
     }
 }

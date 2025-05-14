@@ -5,10 +5,10 @@ public class BankAccount
     private double _balance;
     
 
-    public void Deposit(double ammount)
+    public void Deposit(double amount)
     {
-        Console.WriteLine($"Simulating a deposit of {ammount, 0:c} to your account!");
-        _balance = ammount;
+        Console.WriteLine($"Deposited: {amount, 0:c}. New balance: {_balance, 0:c}");
+        _balance += amount;
     }
 
     public double GetBalance()
